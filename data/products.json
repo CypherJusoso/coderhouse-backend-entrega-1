@@ -1,1 +1,49 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Play Station 5",
+    "description": "Play Station 5 game console with one controller",
+    "price": 500,
+    "thumbnails": [
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21?$facebook$",
+      "https://cdn.mos.cms.futurecdn.net/HkdMToxijoHfz4JwUgfh3G-1200-80.jpg"
+    ],
+    "code": "1242144214adf",
+    "stock": 20,
+    "category": "Videogame console",
+    "status": true
+  },
+  {
+    "id": 2,
+    "title": "Play Station 4",
+    "description": "Play Station 4 game console with one controller",
+    "price": 250,
+    "thumbnails": [],
+    "code": "1242144asdas214adf",
+    "stock": 50,
+    "category": "Videogame console",
+    "status": true
+  },
+  {
+    "id": 3,
+    "title": "Play Station 3",
+    "description": "Play Station 3 game console with one controller",
+    "price": 150,
+    "thumbnails": [],
+    "code": "1212442144asdas214adf",
+    "stock": 40,
+    "category": "Videogame console",
+    "status": true
+  },
+  {
+    "id": 4,
+    "title": "Play Station 2",
+    "description": "Play Station 2 game console with one controller",
+    "price": 50,
+    "thumbnails": [],
+    "code": "212145514124112E",
+    "stock": 14,
+    "category": "Videogame console",
+    "status": true
+  }
+]

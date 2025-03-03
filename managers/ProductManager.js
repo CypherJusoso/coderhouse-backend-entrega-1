@@ -3,9 +3,10 @@ const path = require("path");
 const CartManager = require("./CartManager");
 
 class ProductManager {
-    constructor(filePath) {
+    constructor(filePath, io) {
         this.filePath = path.resolve(filePath);
         this.products = this.loadProducts();
+        this.io = io;
     }
 
     loadProducts() {
@@ -47,6 +48,7 @@ class ProductManager {
 
         this.products.push(newProduct);
         this.saveProducts();
+        this.io.emit("products", this.products);
         return newProduct;
     }
 
@@ -79,7 +81,7 @@ class ProductManager {
     
         const deletedProduct = this.products.splice(index, 1);
         this.saveProducts();
-    
+        this.io.emit("products", this.products);
         const cartManager = new CartManager(path.join(__dirname, "../data/carts.json"));
         cartManager.removeProductFromCarts(id);
     

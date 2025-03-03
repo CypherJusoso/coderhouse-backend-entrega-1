@@ -1,9 +1,10 @@
+module.exports = (io) => {
 const express = require("express");
 const ProductManager = require("../managers/ProductManager");
 const path = require("path");
 
 const router = express.Router();
-const productManager = new ProductManager(path.join(__dirname, "../data/products.json"));
+const productManager = new ProductManager(path.join(__dirname, "../data/products.json"), io);
 
 //Todos los productos
 router.get("/", (req, res) => {
@@ -32,6 +33,7 @@ router.post("/", (req, res) => {
             category,
             status
         );        
+        io.emit("products", productManager.getProducts());
         res.status(201).json(newProduct);
     } catch (error) {
         res.status(400).json({error: error.message});
@@ -55,14 +57,13 @@ router.delete("/:pid", (req, res) => {
         if(!deletedProduct || deletedProduct.length === 0){
             return res.status(404).json({ error: "Producto no encontrado" });
         }
+        io.emit("products", productManager.getProducts());
         res.json({
-            message: "Producto eliminado con exito",
-            product: deletedProduct[0]
-        });
+            message: "Producto eliminado con exito"});
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
 });
 
-module.exports = router;
-
+    return router;
+}
